@@ -11,6 +11,17 @@
 
 Scheduler for Valar backend tasks: run insertion, feature insertion, and backups.
 
+To use:
+1. Make sure MariaDB is running.
+2. Install [valar-infrastructure](https://github.com/dmyersturnbull/valar-infrastructure).
+3. Run `scripts/stage-all` to build and stage JARs to `/var/stage/`.
+4. If you haven't already, create a skeleton database using `valarpy create-skeleton`.
+5. Install [valarpy](https://github.com/dmyersturnbull/valarpy) and edit the config file.
+6. Run `pip install valar-dagger && valar-dagger init`.
+7. Edit the newly created `/etc/valar-dagger.toml`
+   ([example](https://github.com/dmyersturnbull/valar-dagger/blob/master/valardagger/resources/valar-dagger.toml)).
+8. Run `nohup valar-dagger start`.
+
 [New issues](https://github.com/dmyersturnbull/valar-dagger/issues) and pull requests are welcome.
 Please refer to the [contributing guide](https://github.com/dmyersturnbull/valar-dagger/blob/master/CONTRIBUTING.md).
 Generated with [Tyrannosaurus](https://github.com/dmyersturnbull/tyrannosaurus).

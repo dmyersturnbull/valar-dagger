@@ -29,9 +29,16 @@ classifiers = [
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
 	"Intended Audience :: Developers",
-    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Operating System :: POSIX",
     "Environment :: Console",
-    "Topic :: Software Development :: Libraries :: Python Modules"
+    "Environment :: No Input/Output (Daemon)",
+    "Topic :: Database",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: System :: Systems Administration",
+    "Topic :: System :: Archiving",
+    "typing :: Typed"
 ]
 include = [
     "README.md",
@@ -44,6 +51,9 @@ CI = "https://github.com/dmyersturnbull/valar-dagger/actions"
 Issues = "https://github.com/dmyersturnbull/valar-dagger/issues"
 Download = "https://pypi.org/project/valardagger/"
 
+[tool.poetry.scripts]
+valardagger = "valardagger.cli:cli"
+
 
 #########################################################################################
 # Poetry build & dependencies
@@ -51,10 +61,13 @@ Download = "https://pypi.org/project/valardagger/"
 
 [tool.poetry.dependencies]
 python                   = ">=3.8, <4"
+peewee                   = ">=3.13,<4.0"
 prefect                  = ">=0.13, <1.0"
 requests                 = "^2"
 tomlkit                  = ">=0.7, <1.0"
 typer                    = ">=0.3, <1.0"
+valarpy                  = "^2.2"
+watchdog                 = ">=0.10, <1.0"
 
 [tool.poetry.dev-dependencies]
 black                    = "=19.10b0"
@@ -97,7 +110,7 @@ authors = [
     "Douglas Myers-Turnbull <github:dmyersturnbull,orcid:0000-0003-3610-4808>"
 ]
 contributors = [
-	"Chris S Ki"
+	"Chris S Ki <github:chriski777>"
 ]
 maintainers = "tool.tyrannosaurus.sources.authors"
 
