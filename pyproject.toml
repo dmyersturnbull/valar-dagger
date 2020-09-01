@@ -1,0 +1,149 @@
+[metadata]
+description-file = "README.md"
+
+[build-system]
+requires = ["poetry>=1.0", "coverage[toml]"]
+build-backend = "poetry.masonry.api"
+
+
+#########################################################################################
+# Poetry metadata
+#########################################################################################
+
+[tool.poetry]
+name = "valardagger"
+version = "0.1.0"
+description = "Scheduler for Valar backend tasks: run insertion, feature insertion, and backups."
+keywords = ["valar", "sauronx", "scheduler"]
+authors = ["Douglas Myers-Turnbull"]
+maintainers = ["Douglas Myers-Turnbull"]
+license = "Apache-2.0"
+readme = "README.md"
+homepage = "https://github.com/dmyersturnbull/valar-dagger"
+repository = "https://github.com/dmyersturnbull/valar-dagger"
+documentation = "https://github.com/dmyersturnbull/valar-dagger"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+	"Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+include = [
+    "README.md",
+    "LICENSE.txt",
+    "CHANGELOG.md"
+]
+
+[tool.poetry.urls]
+CI = "https://github.com/dmyersturnbull/valar-dagger/actions"
+Issues = "https://github.com/dmyersturnbull/valar-dagger/issues"
+Download = "https://pypi.org/project/valardagger/"
+
+
+#########################################################################################
+# Poetry build & dependencies
+#########################################################################################
+
+[tool.poetry.dependencies]
+python                   = ">=3.8, <4"
+prefect                  = ">=0.13, <1.0"
+requests                 = "^2"
+tomlkit                  = ">=0.7, <1.0"
+typer                    = ">=0.3, <1.0"
+
+[tool.poetry.dev-dependencies]
+black                    = "=19.10b0"
+coverage                 = {extras = ["toml"], version = "^5"}
+flake8                   = "^3"
+flake8-bandit            = "^2"
+flake8-docstrings        = "^1"
+flake8-bugbear           = "^20"
+isort                    = "^5"
+pre-commit               = "^2"
+pytest                   = "^6"
+pytest-cov               = "^2"
+sphinx-autodoc-typehints = "^1"
+
+[tool.poetry.extras]
+dev     = [
+        "pre-commit", "pytest", "coverage",
+        "black", "isort",
+        "flake8", "flake8-docstrings", "flake8-bandit", "flake8-bugbear"
+]
+
+
+#########################################################################################
+# Tyrannosaurus
+#########################################################################################
+
+[tool.tyrannosaurus.options]
+align    = true
+
+[tool.tyrannosaurus.sources]
+status             = "'Development'"
+date               = "'2020-09-01'"
+copyright          = "'Copyright 2020'"
+version            = "tool.poetry.version"
+release            = "tool.poetry.version"
+pyversions         = "tool.poetry.dependencies"
+devdeps            = "tool.poetry.dev-dependencies"
+linelength         = "tool.black.line-length"
+authors = [
+    "Douglas Myers-Turnbull <github:dmyersturnbull,orcid:0000-0003-3610-4808>"
+]
+contributors = [
+	"Chris S Ki"
+]
+maintainers = "tool.tyrannosaurus.sources.authors"
+
+[tool.tyrannosaurus.targets]
+pyproject    = true
+init         = true
+tox          = true
+license      = true
+authors      = true
+github       = true
+dockerfile   = true
+readme       = true
+changelog    = true
+codemeta     = true
+
+
+#########################################################################################
+# Style checking
+#########################################################################################
+
+[tool.coverage.paths]
+source = ["valardagger"]
+
+[tool.coverage.run]
+source = ["valardagger"]
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.black]
+line-length = 100
+target-version = ["py38"]
+
+[tool.isort]
+line_length = 100
+
+[mypy]
+check_untyped_defs = true
+strict_optional = true
+
+[pycodestyle]
+max-line-length = 100
+statistics = true
+
+[pydocstyle]
+# 212 and 213 contradict; 203 and 204 contradict; D302 is not relevant in Py3
+# D107 isn't needed sometimes
+# and the rest are just too picky
+ignore = ["D107", "D200", "D203", "D205", "D212", "D302", "D400", "D403", "D409", "D411"]
