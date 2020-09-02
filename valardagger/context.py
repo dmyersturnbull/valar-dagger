@@ -2,13 +2,13 @@ import os
 from pathlib import Path
 
 import valarpy
-from valardagger.toml import Toml
+from pocketutils.core.dot_dict import NestedDotDict
 
 
 class Context:
     def __init__(self):
         path = os.environ.get("VALARDAGGER_CONFIG", Path("/etc", "valardagger.toml"))
-        self.config = Toml.read_toml(path)
+        self.config = NestedDotDict.read_toml(path)
         self.valar = valarpy.Valar()
         self.model = None
 

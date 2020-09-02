@@ -6,20 +6,6 @@ symlink_tree_path = "/runs/"
 log_path = "/var/log/dagger/${submission.hash}.log"
 features = [ "cd(10)", "MI" ]
 
-[dagger.backup]
-
-[logger.backup.nightly]
-cron = "0 2 * * *"
-paths = [ "/bak/nightly/", "/shire/valar/nightly/" ]
-sensors = true
-features = true
-
-[logger.backup.daily]
-cron = "0 3 * * *"
-paths = [ "/shire/valar/${now.datetime}/" ]
-sensors = true
-features = false
-
 
 [dagger.paths]
 
@@ -27,14 +13,21 @@ upload = "/var/spool/dagger/${submission.hash}/"
 archive = "/shire/${run.year}/${run.month}/${run.tag}/"
 video = "camera/x265-crf15/x265-crf15.mkv"
 video_hash = "camera/x265-crf15/x265-crf15.mkv.sha256"
-
-
-[dagger.tracking]
-
-uploaded = ".upload-complete"
-inserted_run = ".run-insert-complete"
-inserted_sensors = ".sensor-insert-complete"
-inserted_feature = ".feature-insert-complete-${feature.name}"
+signal_path = ".upload-complete"
 
 
 [dagger.notify]
+
+
+[dagger.backup]
+# These correspond to running `valar-dagger backup <<name>>`
+
+[logger.backup.nightly]
+paths = [ "/bak/nightly/", "/shire/valar/nightly/" ]
+sensors = true
+features = true
+
+[logger.backup.daily]
+paths = [ "/shire/valar/${now.datetime}/" ]
+sensors = true
+features = false

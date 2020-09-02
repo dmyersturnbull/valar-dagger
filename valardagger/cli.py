@@ -25,5 +25,12 @@ def start(path: Path) -> None:
         logger.info(f"Started watching at {path}")
 
 
+@cli.command()
+def backup(name: str) -> None:
+    """
+    Runs a backup configuration.
+    """
+
+
 if __name__ == "__main__":
     cli()

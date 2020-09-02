@@ -11,7 +11,7 @@ class TestWatcher:
     def test_run(self):
         with new_tmp_dir() as tmpdir:
             with Watcher(tmpdir) as watcher:
-                path = watcher.path/"testit"/".upload-complete"
+                path = watcher.path / "testit" / ".upload-complete"
                 path.parent.mkdir(parents=True)
                 path.touch()
                 time.sleep(1)

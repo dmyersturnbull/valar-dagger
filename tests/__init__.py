@@ -5,6 +5,7 @@ from typing import Union
 from contextlib import contextmanager
 from datetime import datetime
 
+
 def resource(*nodes: Union[Path, str]) -> Path:
     """Gets a path of a test resource file under resources/."""
     return Path(Path(__file__).parent, "resources", *nodes)

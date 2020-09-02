@@ -52,7 +52,7 @@ Issues = "https://github.com/dmyersturnbull/valar-dagger/issues"
 Download = "https://pypi.org/project/valardagger/"
 
 [tool.poetry.scripts]
-valardagger = "valardagger.cli:cli"
+valar-dagger = "valardagger.cli:cli"
 
 
 #########################################################################################
@@ -62,8 +62,8 @@ valardagger = "valardagger.cli:cli"
 [tool.poetry.dependencies]
 python                   = ">=3.8, <4"
 peewee                   = ">=3.13,<4.0"
+pocketutils              = "^0.2"
 prefect                  = ">=0.13, <1.0"
-requests                 = "^2"
 tomlkit                  = ">=0.7, <1.0"
 typer                    = ">=0.3, <1.0"
 valarpy                  = "^2.2"

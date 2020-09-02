@@ -5,11 +5,10 @@
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/valar-dagger)](https://pypi.org/project/valar-dagger/)
 [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/dmyersturnbull/valar-dagger?include_prereleases&label=GitHub)](https://github.com/dmyersturnbull/valar-dagger/releases)
 [![Latest version on PyPi](https://badge.fury.io/py/valar-dagger.svg)](https://pypi.org/project/valar-dagger/)
-[![Documentation status](https://readthedocs.org/projects/valar-dagger/badge/?version=latest&style=flat-square)](https://valar-dagger.readthedocs.io/en/stable/)
 [![Build & test](https://github.com/dmyersturnbull/valar-dagger/workflows/Build%20&%20test/badge.svg)](https://github.com/dmyersturnbull/valar-dagger/actions)
 [![Coverage](https://coveralls.io/repos/github/dmyersturnbull/valar-dagger/badge.svg?branch=master)](https://coveralls.io/github/dmyersturnbull/valar-dagger?branch=master)
 
-Scheduler for Valar backend tasks: run insertion, feature insertion, and backups.
+Scheduler for [Valar](https://github.com/dmyersturnbull/valar-schema) backend tasks: run insertion, feature insertion, and backups.
 
 To use:
 1. Make sure MariaDB is running.
