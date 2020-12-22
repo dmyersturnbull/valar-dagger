@@ -21,5 +21,5 @@ class Context:
         self.valar.close()
 
     @classmethod
-    def archive_path(cls, subission_hash: str) -> Path:
+    def archive_path(cls, submission_hash: str) -> Path:
         pass
