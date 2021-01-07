@@ -2,9 +2,12 @@
 description-file = "README.md"
 
 [build-system]
-requires = ["poetry>=1.0", "coverage[toml]"]
+# virtualenv 20.0.34 partly breaks pre-commit under conda
+# https://github.com/ContinuumIO/anaconda-issues/issues/12094
+# Poetry uses pip and setuptools (although they're not included as dependencies)
+# We don't need to list wheel here, but setting a min vr can avoid generating inferior wheels
+requires = ["poetry>=1.1,<2", "virtualenv==20.0.33", "wheel>=0.36,<1.0"]
 build-backend = "poetry.masonry.api"
-
 
 #########################################################################################
 # Poetry metadata
