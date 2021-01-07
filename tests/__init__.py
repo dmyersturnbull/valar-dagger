@@ -13,7 +13,7 @@ def resource(*nodes: Union[Path, str]) -> Path:
 
 @contextmanager
 def new_tmp_dir() -> Path:
-    path = Path(tempfile.gettempdir()) / datetime.now().strftime("%Y%m%d.%H%M%S")
+    path = Path("tmptestdata") / datetime.now().strftime("%Y%m%d.%H%M%S")
     if path.exists():
         shutil.rmtree(str(path))
     path.mkdir(parents=True)

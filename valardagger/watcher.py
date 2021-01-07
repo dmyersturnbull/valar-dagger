@@ -3,15 +3,15 @@ import logging
 from typing import Sequence
 from pathlib import Path
 from watchdog.observers import Observer
-from watchdog.events import PatternMatchingEventHandler, FileSystemEvent
+from watchdog.events import FileSystemEventHandler, FileSystemEvent
 
 
 logger = logging.getLogger(__package__)
 
 
-class EventHandler(PatternMatchingEventHandler):
-    def __init__(self, glob: str, max_simultaneous: int):
-        super().__init__(patterns=glob, case_sensitive=True)
+class EventHandler(FileSystemEventHandler):
+    def __init__(self, filename: str, max_simultaneous: int):
+        self._filename = filename
         self._max_simultaneous = max_simultaneous
         self._waiting = []
         self._active = []
@@ -19,7 +19,7 @@ class EventHandler(PatternMatchingEventHandler):
 
     def on_created(self, event: FileSystemEvent):
         path = Path(event.src_path)
-        if path.name == ".upload-complete":
+        if path.name == self._filename:
             # It's strange, but events get created twice
             if path in self._waiting or path in self._active or path in self._finished:
                 return
@@ -40,11 +40,18 @@ class EventHandler(PatternMatchingEventHandler):
 
 
 class Watcher:
-    def __init__(self, path: Path):
+    def __init__(self, path: Path, max_simultaneous: int = 2, poll_interval_secs: int = 1):
+        """
+
+        Args:
+            path: The spool directory
+            max_simultaneous: The max number of jobs that can be processed simultaneously
+            poll_interval_secs: The number of seconds to wait between polls; must be at least 1 s.
+        """
         self.path = path
-        self.glob = f"{path}/*/.upload-complete"
-        self._handler = EventHandler(self.glob, 2)
-        self._observer = Observer()
+        self.filename = r".upload-complete"
+        self._handler = EventHandler(self.filename, max_simultaneous=max_simultaneous)
+        self._observer = Observer(timeout=poll_interval_secs)
         self._observer.schedule(self._handler, str(path), recursive=True)
 
     def __enter__(self):

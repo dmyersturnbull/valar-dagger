@@ -23,3 +23,6 @@ class Context:
     @classmethod
     def archive_path(cls, submission_hash: str) -> Path:
         pass
+
+
+__all__ = ["Context"]
