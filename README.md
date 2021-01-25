@@ -1,14 +1,16 @@
 # Valar-dagger
 
-[![Version status](https://img.shields.io/pypi/status/valar-dagger)](https://pypi.org/project/valar-dagger/)
+[![Version status](https://img.shields.io/pypi/status/valar.dagger?label=status)](https://pypi.org/project/valar.dagger)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/valar-dagger)](https://pypi.org/project/valar-dagger/)
-[![Docker](https://img.shields.io/docker/v/dmyersturnbull/valar-dagger?color=green&label=DockerHub)](https://hub.docker.com/repository/docker/dmyersturnbull/valar-dagger)
-[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/dmyersturnbull/valar-dagger?include_prereleases&label=GitHub)](https://github.com/dmyersturnbull/valar-dagger/releases)
-[![Latest version on PyPi](https://badge.fury.io/py/valar-dagger.svg)](https://pypi.org/project/valar-dagger/)
-[![Documentation status](https://readthedocs.org/projects/valar-dagger/badge/?version=latest&style=flat-square)](https://valar-dagger.readthedocs.io/en/stable/)
-[![Build & test](https://github.com/dmyersturnbull/valar-dagger/workflows/Build%20&%20test/badge.svg)](https://github.com/dmyersturnbull/valar-dagger/actions)
-[![Coverage](https://coveralls.io/repos/github/dmyersturnbull/valar-dagger/badge.svg?branch=master)](https://coveralls.io/github/dmyersturnbull/valar-dagger?branch=master)
+[![Python version compatibility](https://img.shields.io/pypi/pyversions/valar.dagger?label=Python)](https://pypi.org/project/valar.dagger)
+[![Version on Docker Hub](https://img.shields.io/docker/v/dmyersturnbull/valar-dagger?color=green&label=Docker%20Hub)](https://hub.docker.com/repository/docker/dmyersturnbull/valar-dagger)
+[![Version on Github](https://img.shields.io/github/v/release/dmyersturnbull/valar-dagger?include_prereleases&label=GitHub)](https://github.com/dmyersturnbull/valar-dagger/releases)
+[![Version on PyPi](https://img.shields.io/pypi/v/valar.dagger?label=PyPi)](https://pypi.org/project/valar.dagger)  
+[![Build (Actions)](https://img.shields.io/github/workflow/status/dmyersturnbull/valar-dagger/Build%20&%20test?label=Tests)](https://github.com/dmyersturnbull/valar-dagger/actions)
+[![Documentation status](https://readthedocs.org/projects/valar-dagger/badge)](https://valar-dagger.readthedocs.io/en/stable)
+[![Coverage (coveralls)](https://coveralls.io/repos/github/dmyersturnbull/valar-dagger/badge.svg?branch=main&service=github)](https://coveralls.io/github/dmyersturnbull/valar-dagger?branch=main)
+[![Maintainability (Code Climate)](https://api.codeclimate.com/v1/badges/eea2b741dbbbb74ad18a/maintainability)](https://codeclimate.com/github/dmyersturnbull/valar-dagger/maintainability)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dmyersturnbull/valar-dagger/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/dmyersturnbull/valar-dagger/?branch=main)
 
 Scheduler for [Valar](https://github.com/dmyersturnbull/valar-schema) backend tasks: run insertion, feature insertion, and backups.
 
