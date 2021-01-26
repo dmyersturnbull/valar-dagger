@@ -67,7 +67,8 @@ prefect                  = ">=0.14, <1.0"
 tomlkit                  = ">=0.7, <1.0"
 typer                    = ">=0.3, <1.0"
 valarpy                  = ">=2.0, <4.0"
-watchdog                 = ">=1.0.2, <2.0"
+fastapi                  = ">=0.63, <1.0"
+dask                     = "=2021.1.1"
 
 [tool.poetry.dev-dependencies]
 pre-commit               = ">=2.9, <3.0"

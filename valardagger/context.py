@@ -20,9 +20,9 @@ class Context:
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.valar.close()
 
-    @classmethod
-    def archive_path(cls, submission_hash: str) -> Path:
+    def archive_path(self, submission_hash: str) -> Path:
         pass
 
+CONTEXT = Context()
 
-__all__ = ["Context"]
+__all__ = ["CONTEXT"]
